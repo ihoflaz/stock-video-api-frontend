@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://stock-video-api-backend.vercel.app/api/pixabay'
-  : 'http://localhost:3001/api/pixabay';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/pixabay`;
 
 export const searchPixabayVideos = createAsyncThunk(
   'pixabay/searchVideos',
