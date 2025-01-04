@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Stock Video API Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu proje, çeşitli stok video sitelerinden (Pixabay, Pexels vb.) videoları tek bir arayüzde aramak ve görüntülemek için geliştirilmiş bir React uygulamasıdır.
 
-## Available Scripts
+## 🚀 Özellikler
 
-In the project directory, you can run:
+- Tek arayüzde birden fazla stok video sitesinde arama
+- Pixabay ve Pexels API entegrasyonu
+- Responsive tasarım
+- Video önizleme ve detay görüntüleme
+- Sayfalama desteği
+- Redux state yönetimi
+- API durum kontrolü
 
-### `npm start`
+## 🛠️ Teknolojiler
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18
+- Redux Toolkit
+- Axios
+- CSS3 (Grid ve Flexbox)
+- Create React App
+- Vercel Deployment
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Kurulum
 
-### `npm test`
+1. Projeyi klonlayın:
+```bash
+git clone https://github.com/kullaniciadi/stock-video-api.git
+cd stock-video-api/frontend
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
 
-### `npm run build`
+3. `.env` dosyasını oluşturun:
+```bash
+REACT_APP_API_URL=http://localhost:3001
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Geliştirme sunucusunu başlatın:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Proje Yapısı
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+frontend/
+├── public/
+├── src/
+│   ├── components/         # React bileşenleri
+│   │   ├── ApiStatus.js   # API durum kontrolü
+│   │   ├── SearchBar.js   # Arama çubuğu
+│   │   ├── VideoList.js   # Video listesi
+│   │   └── VideoColumns.js # Video kolonları
+│   ├── store/             # Redux store
+│   │   ├── index.js       # Store yapılandırması
+│   │   ├── pixabaySlice.js # Pixabay state yönetimi
+│   │   └── pexelsSlice.js # Pexels state yönetimi
+│   ├── styles/            # CSS dosyaları
+│   └── App.js             # Ana uygulama bileşeni
+└── package.json
+```
 
-### `npm run eject`
+## 🚀 Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Proje Vercel'e deploy edilmiştir. Production ortamı için:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. `.env.production` dosyasını oluşturun:
+```bash
+REACT_APP_API_URL=https://stock-video-api-backend.vercel.app
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Build alın:
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Vercel'e deploy edin:
+```bash
+vercel
+```
 
-## Learn More
+## 🔗 API Entegrasyonu
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Pixabay API: Video arama ve listeleme
+- Pexels API: Video arama ve listeleme
+- Backend API: `/api/health` endpoint'i ile API durumu kontrolü
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 Notlar
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- API anahtarları backend'de saklanmaktadır
+- Development ortamında backend'in localhost:3001'de çalışıyor olması gerekir
+- Production ortamında Vercel üzerinden servis edilmektedir
