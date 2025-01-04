@@ -28,17 +28,19 @@ const pexelsSlice = createSlice({
     builder
       .addCase(searchPexelsVideos.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(searchPexelsVideos.fulfilled, (state, action) => {
         state.loading = false;
-        state.videos = action.payload.data.videos;
-        state.totalHits = action.payload.data.total_results;
+        state.videos = action.payload.data.videos || [];
+        state.totalHits = action.payload.data.total_results || 0;
         state.currentPage = action.payload.page;
         state.query = action.meta.arg.query;
       })
       .addCase(searchPexelsVideos.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+        state.videos = [];
       });
   },
 });

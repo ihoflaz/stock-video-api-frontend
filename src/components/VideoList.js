@@ -10,6 +10,12 @@ const VideoList = ({ source }) => {
   const state = useSelector((state) => state[source]);
   const { videos, loading, error, currentPage, totalHits, query } = state;
 
+  // Hata ayıklama için log ekleyelim
+  console.log(`${source} videos:`, videos);
+
+  // videos undefined veya null ise boş dizi kullan
+  const safeVideos = videos || [];
+
   const itemsPerPage = 20;
   const totalPages = Math.ceil(totalHits / itemsPerPage);
 
@@ -72,7 +78,7 @@ const VideoList = ({ source }) => {
   return (
     <div className="video-list">
       <div className="video-grid">
-        {videos.map((video) => {
+        {safeVideos.map((video) => {
           const videoInfo = getVideoInfo(video);
           return (
             <div key={videoInfo.id} className="video-item">
@@ -130,7 +136,7 @@ const VideoList = ({ source }) => {
           );
         })}
       </div>
-      {videos.length > 0 && (
+      {safeVideos.length > 0 && (
         <Pagination 
           currentPage={currentPage} 
           totalPages={totalPages}
