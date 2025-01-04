@@ -1,0 +1,27 @@
+.video-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.column {
+  min-width: 0; /* Grid taşmalarını önler */
+}
+
+.column-title {
+  text-align: center;
+  color: #495057;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1200px) {
+  .video-columns {
+    grid-template-columns: 1fr;
+  }
+} 
